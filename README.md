@@ -14,3 +14,11 @@ kubectl edit configmap -n loki-stack loki-stack-grafana
     from_name = Grafana 
 ~~~
 
+restart the grafana pod
+
+datasource add
+~~~
+name influx
+http://monasca-influxdb.monasca.svc.cluster.local:8089
+database: mon
+user: mon_api
